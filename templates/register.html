@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register - SecureAuth
+{% endblock %}
+
+
+{% block content %}
+
+<div class="auth-card">
+
+    <div class="security-icon">
+        🛡️
+    </div>
+
+    <h1>
+        Create Account
+    </h1>
+
+    <p class="subtitle">
+        Create your secure account
+    </p>
+
+
+    <form
+        method="POST"
+        action="{{ url_for('register') }}"
+    >
+
+        <div class="form-group">
+
+            <label for="username">
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Choose a username"
+                minlength="3"
+                maxlength="30"
+                pattern="[A-Za-z0-9_]{3,30}"
+                required
+                autocomplete="username"
+            >
+
+            <small>
+                3-30 characters. Letters, numbers and underscore only.
+            </small>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="example@email.com"
+                required
+                autocomplete="email"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Create a strong password"
+                minlength="8"
+                required
+                autocomplete="new-password"
+            >
+
+            <small>
+                Minimum 8 characters with uppercase, lowercase,
+                number and special character.
+            </small>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="confirm_password">
+                Confirm Password
+            </label>
+
+            <input
+                type="password"
+                id="confirm_password"
+                name="confirm_password"
+                placeholder="Re-enter your password"
+                required
+                autocomplete="new-password"
+            >
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="btn"
+        >
+            Create Account
+        </button>
+
+    </form>
+
+
+    <p class="bottom-text">
+
+        Already have an account?
+
+        <a href="{{ url_for('login') }}">
+            Login
+        </a>
+
+    </p>
+
+</div>
+
+{% endblock %}

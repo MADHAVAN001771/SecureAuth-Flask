@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login - SecureAuth
+{% endblock %}
+
+
+{% block content %}
+
+<div class="auth-card">
+
+    <div class="security-icon">
+        🔐
+    </div>
+
+    <h1>
+        Welcome Back
+    </h1>
+
+    <p class="subtitle">
+        Login securely to your account
+    </p>
+
+
+    <form
+        method="POST"
+        action="{{ url_for('login') }}"
+    >
+
+        <div class="form-group">
+
+            <label for="username">
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                minlength="3"
+                maxlength="30"
+                required
+                autocomplete="username"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+                autocomplete="current-password"
+            >
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="btn"
+        >
+            Login
+        </button>
+
+    </form>
+
+
+    <p class="bottom-text">
+
+        Don't have an account?
+
+        <a href="{{ url_for('register') }}">
+            Create Account
+        </a>
+
+    </p>
+
+</div>
+
+{% endblock %}

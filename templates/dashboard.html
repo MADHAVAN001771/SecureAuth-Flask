@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard - SecureAuth
+{% endblock %}
+
+
+{% block content %}
+
+<div class="dashboard">
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <p class="welcome">
+                Welcome back,
+            </p>
+
+            <h1>
+                {{ user["username"] }}
+            </h1>
+
+        </div>
+
+        <div class="shield">
+            🔐
+        </div>
+
+    </div>
+
+
+    <div class="security-status">
+
+        <div class="status-icon">
+            ✓
+        </div>
+
+        <div>
+
+            <h3>
+                Account Secure
+            </h3>
+
+            <p>
+                You are successfully authenticated.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <span>
+                Username
+            </span>
+
+            <strong>
+                {{ user["username"] }}
+            </strong>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <span>
+                Email
+            </span>
+
+            <strong>
+                {{ user["email"] }}
+            </strong>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <span>
+                Account ID
+            </span>
+
+            <strong>
+                #{{ user["id"] }}
+            </strong>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <span>
+                Account Created
+            </span>
+
+            <strong>
+                {{ user["created_at"] }}
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="security-features">
+
+        <h2>
+            Security Features
+        </h2>
+
+        <div class="feature-list">
+
+            <div>
+                🔒
+                <span>
+                    Password protected with bcrypt hashing
+                </span>
+            </div>
+
+            <div>
+                🛡️
+                <span>
+                    SQL injection protection
+                </span>
+            </div>
+
+            <div>
+                🔑
+                <span>
+                    Secure session management
+                </span>
+            </div>
+
+            <div>
+                ✓
+                <span>
+                    Input validation enabled
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <a
+        href="{{ url_for('logout') }}"
+        class="logout-btn"
+    >
+        Logout Securely
+    </a>
+
+</div>
+
+{% endblock %}
